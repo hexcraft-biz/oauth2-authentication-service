@@ -1,0 +1,15 @@
+{
+  "plugins": ["prettier"],
+  "extends": ["eslint:recommended", "google", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error", {"singleQuote": true}],
+    "new-cap": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  }
+}

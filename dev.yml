@@ -1,0 +1,38 @@
+version: '3.7'
+
+networks:
+  intranet:
+
+services:
+  oauth2-authentication-service:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: oauth2-authentication-service
+    ports:
+      - "6060:6060"
+    env_file:
+      - ./.env
+    restart: on-failure
+    # depends_on:
+      # - redis
+    networks:
+      - intranet
+
+  # redis:
+  #   image: redis:5.0.5-alpine
+  #   container_name: dev-shared-redis
+  #   restart: always
+  #   environment:
+  #     - "ENV=develop"
+  #   ports:
+  #     - "6379:6379"
+  #   expose:
+  #     - "6379"
+  #   networks:
+  #     - intranet
+
+networks:
+  intranet: 
+    external:
+      name: intranet
