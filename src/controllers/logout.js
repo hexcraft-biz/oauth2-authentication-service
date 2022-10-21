@@ -69,6 +69,8 @@ class LogoutController {
 				)
 			}
 
+			req.session.destroy();
+
 			// The user agreed to log out, let's accept the logout request.
 			hydraAdmin
 				.acceptLogoutRequest(challenge)
